@@ -18,4 +18,10 @@ export class Teste02Component {
       this.receberMessage = message;
     })
   }
+
+
+  enviarMessage(): void {
+    // this.testeService.enviarMessage('hello word');
+    console.log('teste')
+  }
 }

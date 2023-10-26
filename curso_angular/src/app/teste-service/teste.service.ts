@@ -17,6 +17,8 @@ export class TesteService {
   public getProducts(): void {
     this._http.get<product[]>(this.apiURL).subscribe(data => {
       this._getProductsSubject.next(data);
+      console.log(this.getProducts$);
+      // console.log(this._getProductsSubject.value);
     });
   }
 
@@ -28,13 +30,13 @@ export class TesteService {
   message02$ = this.messageSubject02.asObservable();
   // expondo o observable (message$)  para que outros components possam escutar
 
-  enviarMessage(message: string) {
-    this.messageSubject.next(message);
-  }
+  // enviarMessage(message: string) {
+  //   this.messageSubject.next(message);
+  // }
 
-  enviarMessage02(message02: string) {
-    this.messageSubject02.next(message02);
-  }
+  // enviarMessage02(message02: string) {
+  //   this.messageSubject02.next(message02);
+  // }
 
   //  esse metodo permite que components possam enviar menssagens
   // next(message) enviar message para todos que estao escutando o message$

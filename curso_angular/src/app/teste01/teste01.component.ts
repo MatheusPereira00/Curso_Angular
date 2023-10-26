@@ -13,10 +13,12 @@ export class Teste01Component {
   constructor(private testeService: TesteService){}
 
   enviarMessage(): void {
-    this.testeService.enviarMessage('hello word');
+    // this.testeService.enviarMessage('hello word');
+    console.log('teste')
   }
   
   enviarMessage02(): void {
-    this.testeService.enviarMessage02('hello word 02');
+    // this.testeService.enviarMessage02('hello word 02');
+    console.log('teste2')
   }
 }

@@ -16,7 +16,7 @@ export class Teste04Component implements OnInit {
   product: product[] = [];
   private _http = inject(HttpClient);
   private _testeService = inject(TesteService);
-  public getProducts$: Observable<product[]> = this._testeService.getProducts$;
+  public getProducts$ = this._testeService.getProducts$;
   // public productsSubscription!: Subscription;
 
   // public getAllProductsService(): void {
