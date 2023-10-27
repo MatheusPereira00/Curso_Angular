@@ -1,26 +1,28 @@
-// .card {
-//   width: 25rem;
-//   margin-left: 1rem;
-
-//   border-radius: -2rem;
-//   background-color: rgb(98, 147, 222);
-
-//   img {
-//     width: 10rem;
-//   }
-// }
-
 .form {
   margin-top: 5rem;
   margin-left: 30rem;
+
+  input {
+    border-radius: 1rem;
+    height: 2rem;
+    width: 8rem;
+  }
+
   button {
-    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-left: 2.3rem;
+    width: 10rem;
+    height: 2rem;
+    background: #009879;
+    color: white;
+    border-radius: 0.8rem;
+    border: none;
   }
 }
 
 .table {
   border-collapse: collapse;
-  margin: 25px;
+  margin: 2.5rem;
   font-size: 0.9em;
   min-width: 85%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -34,7 +36,7 @@
 
 .table th,
 .table td {
-  padding: 12px 15px;
+  padding: 1.2rem 1.5rem;
 }
 
 .table tbody tr {
@@ -51,38 +53,19 @@
 
 .th-btn {
   display: flex;
-  margin-left: 30px;
+  margin-left: 3rem;
 }
 
 .td-btn {
   display: flex;
-  gap: 15px;
+  gap: 1.5rem;
 }
-.btn-1 {
+
+.btn-search {
   width: 50px;
   height: 38px;
   background: #0052dd;
   color: white;
-  border-radius: 8px;
-  border: none;
-}
-
-.btn-2 {
-  width: 50px;
-  height: 38px;
-  background: red;
-  color: white;
-  border-radius: 8px;
-  border: none;
-}
-
-.btn-create {
-  margin-top: 10px;
-  margin-left: 23px;
-  width: 100px;
-  height: 38px;
-  background: #009879;
-  color: white;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   border: none;
 }

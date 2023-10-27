@@ -30,4 +30,16 @@ export class ProductsService {
     let url = `${environment.API}/products/${id}`
     return this._http.get<Product>(url);
   }
+
+  public getSearchProducts(search: string): void {
+    this._http.get<ProductResponse>(`${environment.API}/products/search?q=${search}`)
+    .pipe(
+      take(1),
+      tap((response) => {
+        const products = response.products;
+        this._allProductsSubject$.next(products);
+      })
+    )
+    .subscribe();
+  }
 }

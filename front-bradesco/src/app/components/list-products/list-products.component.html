@@ -1,28 +1,7 @@
-<!-- <div class="div" *ngIf="products">
-  <div class="card" *ngFor="let product of products">
-    <h1>{{ product.title }}</h1>
-    <p>id : {{ product.id }}</p>
-    <img
-      [routerLink]="['/details', product.id]"
-      [src]="product.thumbnail"
-      [alt]="product.title"
-    />
-    <p>{{ product.thumbnail }}</p>
-    <p>Description: {{ product.description }}</p>
-    <p>Price: R${{ product.price }}</p>
-    <p>DiscountPercentage: {{ product.discountPercentage }}</p>
-    <p>Rating: {{ product.rating }}</p>
-    <p>Stock: {{ product.stock }}</p>
-    <p>Brand: {{ product.brand }}</p>
-    <p>Category: {{ product.category }}</p>
-    <button [routerLink]="['details', product.id]">Details</button>
-  </div>
-</div> -->
-
-<div class="form">
-  <input type="text" />
-  <button>Buscar Product</button>
-</div>
+<form class="form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="search" placeholder="search"/>
+  <button type="submit">Buscar Product</button>
+</form>
 
 <table class="table">
   <thead>
@@ -51,11 +30,11 @@
       <td>{{ product.brand }}</td>
       <td class="td-btn">
         <button
-          class="btn-1"
+          class="btn-search"
           routerLink="details"
           [routerLink]="['details', product.id]"
         >
-          details
+          detail
         </button>
       </td>
     </tr>
