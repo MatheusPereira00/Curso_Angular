@@ -15,25 +15,10 @@ export class ListProductsComponent implements OnInit {
   public products!: Product[];
 
   private readonly _productService = inject(ProductsService);
-  private readonly _router = inject(Router);
+  public readonly products$ = this._productService.allProducts$;
 
   public ngOnInit(): void {
-    this.getAllProductsService();
-  }
-
-  public getAllProductsService(): void {
-    this._productService.getAllProducts().subscribe({
-      next: (productsList) => {
-        this.products = productsList.products;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
-
-  btnEdit(productsId: string) {
-    this._router.navigate([`product/edit/${productsId}`]);
+    this._productService.getAllProducts()
   }
 
 }

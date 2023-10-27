@@ -1,0 +1,39 @@
+<p>detail-products works!</p>
+
+<div *ngIf="productsById$ | async">
+  <div *ngFor="let product of products">{{product.id}}</div>
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>id</th>
+      <th>price</th>
+      <th>rating</th>
+      <th>stock</th>
+      <th>category</th>
+      <th>discountPercentage</th>
+      <th>brand</th>
+      <th class="th-btn">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody *ngIf="products">
+    <tr *ngFor="let product of products">
+      <td>{{ product.title }}</td>
+      <td>{{ product.id }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.rating }}</td>
+      <td>{{ product.stock }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.discountPercentage }}</td>
+      <td>{{ product.brand }}</td>
+      <td class="td-btn">
+        <button class="btn-1" routerLink="details">details</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

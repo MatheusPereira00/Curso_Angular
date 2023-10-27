@@ -9,7 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './detail-products.component.html',
-  styleUrls: ['./detail-products.component.scss']
+  styleUrls: ['./detail-products.component.scss'],
 })
 export class DetailProductsComponent implements OnInit {
   public products: Product[] = [];
@@ -18,15 +18,21 @@ export class DetailProductsComponent implements OnInit {
   private _productsService = inject(ProductsService);
   private _route = inject(ActivatedRoute);
 
+  public productsById$ = this._productsService.productsById$;
+
+  // ngOnInit(): void {
+  //     this._productsService.getProductById(this.id);
+  // }
+
   public ngOnInit(): void {
-    this.getParamsByRouter();
-    this.getProductsById();
+    // this.getParamsByRouter();
+    // this.getProductsById();
+    this._productsService.getProductById(this.id);
   }
 
   public getProductsById(): void {
-    this._productsService.getProductById(String(this.id)).subscribe(productsById => {
+    this._productsService.getProductById((this.id)).subscribe(productsById => {
       this.products = productsById;
-      console.log(productsById)
     });
   }
 
@@ -35,5 +41,4 @@ export class DetailProductsComponent implements OnInit {
       this.id = params.get('id');
     });
   }
-
 }
