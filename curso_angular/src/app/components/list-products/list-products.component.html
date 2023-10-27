@@ -2,7 +2,11 @@
   <div class="card" *ngFor="let product of products">
     <h1>{{ product.title }}</h1>
     <p>id : {{ product.id }}</p>
-    <img [src]="product.thumbnail" [alt]="product.title" />
+    <img
+      [routerLink]="['/details', product.id]"
+      [src]="product.thumbnail"
+      [alt]="product.title"
+    />
     <p>{{ product.thumbnail }}</p>
     <p>Description: {{ product.description }}</p>
     <p>Price: R${{ product.price }}</p>
@@ -11,6 +15,6 @@
     <p>Stock: {{ product.stock }}</p>
     <p>Brand: {{ product.brand }}</p>
     <p>Category: {{ product.category }}</p>
-    <button>Details</button>
+    <button [routerLink]="['details', product.id]">Details</button>
   </div>
 </div>

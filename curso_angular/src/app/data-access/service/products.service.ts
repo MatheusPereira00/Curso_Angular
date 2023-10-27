@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { ProductResponse } from '../interface/products';
+import { Product, ProductResponse } from '../interface/products';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -20,10 +20,20 @@ export class ProductsService {
   //   });
   // }
 
-  private http = inject(HttpClient);
+  private _http = inject(HttpClient);
 
   public getAllProducts(): Observable<ProductResponse> {
-    return this.http.get<ProductResponse>(`${environment.API}/products`);
+    return this._http.get<ProductResponse>(`${environment.API}/products`);
   }
+
+  public getProductById(id: string): Observable<Product[]> {
+    let url = `${environment.API}/products`;
+    url += `?id=${id}`;
+    return this._http.get<Product[]>(url);
+  }
+
+  // public getProductById(id: string | null): Observable<Product> {
+  //   return this._http.get<Product>(`${environment.API}/products/${id}`);
+  // }
 
 }
