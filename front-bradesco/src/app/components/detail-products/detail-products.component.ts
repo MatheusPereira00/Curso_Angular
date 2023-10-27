@@ -1,43 +1,34 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Product } from 'src/app/data-access/interface/products';
 import { ProductsService } from 'src/app/data-access/service/products.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { take } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-detail-products',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgIf, RouterLink],
   templateUrl: './detail-products.component.html',
   styleUrls: ['./detail-products.component.scss'],
 })
 export class DetailProductsComponent implements OnInit {
-  public products: Product[] = [];
+  public product!: Product;
   public id!: string | null;
 
   private _productsService = inject(ProductsService);
   private _route = inject(ActivatedRoute);
 
-  public productsById$ = this._productsService.productsById$;
-
-  // ngOnInit(): void {
-  //     this._productsService.getProductById(this.id);
-  // }
-
   public ngOnInit(): void {
-    // this.getParamsByRouter();
-    // this.getProductsById();
-    this._productsService.getProductById(this.id);
-  }
-
-  public getProductsById(): void {
-    this._productsService.getProductById((this.id)).subscribe(productsById => {
-      this.products = productsById;
+    this.getProductById();
+    this._productsService.getProductById(this.id).pipe(take(1)).subscribe(product => {
+      this.product = product;
     });
   }
 
-  public getParamsByRouter(): void {
-    this._route.paramMap.subscribe((params: ParamMap) => {
+  public getProductById(): void {
+    this._route.paramMap.pipe(take(1)).subscribe((params: ParamMap) => {
       this.id = params.get('id');
     });
   }

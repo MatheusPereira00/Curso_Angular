@@ -8,10 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProductsService {
-  public product!: Product;
-
   private _http = inject(HttpClient);
-  private _ProductByIdSubject$ = new BehaviorSubject<Product>(this.product);
   private _allProductsSubject$ = new BehaviorSubject<Product[]>([]);
 
   public readonly allProducts$: Observable<Product[]> = this._allProductsSubject$.asObservable();
@@ -29,16 +26,8 @@ export class ProductsService {
     .subscribe();
   }
 
-  // public getProductById(id: string | null): void {
-  //   let url = `${environment.API}/${id}`
-  //   this._http.get<Product>(url).pipe(take(1)).subscribe(response => {
-  //     this._ProductByIdSubject$.next(response);
-  //   })
-  // }
-
-  public getProductById(id: string | null): Observable<Product[]> {
-    let url = `${environment.API}/${id}`
-    url += `?id=${id}`;
-    return this._http.get<Product[]>(url);
+  public getProductById(id: string | null): Observable<Product> {
+    let url = `${environment.API}/products/${id}`
+    return this._http.get<Product>(url);
   }
 }
