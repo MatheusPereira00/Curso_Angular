@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductsService {
   private _http = inject(HttpClient);
-  private _allProductsSubject$ = new BehaviorSubject<Product[]>([]);
 
+  private _allProductsSubject$ = new BehaviorSubject<Product[]>([]);
   public readonly allProducts$: Observable<Product[]> = this._allProductsSubject$.asObservable();
   public readonly productsById$: Observable<Product[]> = this._allProductsSubject$.asObservable();
 
