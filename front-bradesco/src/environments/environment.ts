@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
 
-  API: 'https://dummyjson.com',
+  API: 'http://localhost:8080/products',
 };

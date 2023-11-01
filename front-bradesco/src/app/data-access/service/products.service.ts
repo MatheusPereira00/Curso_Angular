@@ -15,7 +15,7 @@ export class ProductsService {
   public readonly productsById$: Observable<Product[]> = this._allProductsSubject$.asObservable();
 
   public getAllProducts(): void {
-    this._http.get<ProductResponse>(`${environment.API}/products`)
+    this._http.get<ProductResponse>(`${environment.API}`)
     .pipe(
       take(1),
       tap((response) => {

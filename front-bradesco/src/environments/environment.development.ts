@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
   
-    API: 'https://dummyjson.com',
+    API: 'http://localhost:8080/products',
   };
   
