@@ -27,7 +27,7 @@ export class ProductsService {
   }
 
   public getProductById(id: string | null): Observable<Product> {
-    let url = `${environment.API}/products/${id}`
+    let url = `${environment.API}/${id}`
     return this._http.get<Product>(url);
   }
 
