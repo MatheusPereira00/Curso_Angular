@@ -1,7 +1,7 @@
 # consuming-api-dummy-project
 PROJETO ANGULAR  🅰️
 
-- Projeto feita em angular onde tem tres objetivos,
+- Projeto feito em angular que tem tres objetivos,
 - listar todos os produtos
 - detalhe do produto
 - busca por parametro
