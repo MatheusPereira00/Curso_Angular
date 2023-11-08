@@ -8,6 +8,10 @@
     width: 8rem;
   }
 
+  ::placeholder {
+    padding: 0.5rem;
+  }
+
   button {
     margin-top: 1rem;
     margin-left: 2.3rem;

@@ -1,10 +1,3 @@
-export interface ProductResponse {
-  limit: number;
-  skip: number;
-  total: number;
-  products: Product[];
-}
-
 export interface Product {
   id: string;
   title: string;
@@ -17,4 +10,8 @@ export interface Product {
   category: string;
   thumbnail: string;
   images: string[];
+  limit: number;
+  skip: number;
+  total: number;
+  products: Product[];
 }

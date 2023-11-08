@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Product, ProductResponse } from '../interface/products';
+import { Product } from '../interface/products';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, take, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,10 +12,9 @@ export class ProductsService {
 
   private _allProductsSubject$ = new BehaviorSubject<Product[]>([]);
   public readonly allProducts$: Observable<Product[]> = this._allProductsSubject$.asObservable();
-  public readonly productsById$: Observable<Product[]> = this._allProductsSubject$.asObservable();
 
   public getAllProducts(): void {
-    this._http.get<ProductResponse>(`${environment.API}`)
+    this._http.get<Product>(`${environment.API}`)
     .pipe(
       take(1),
       tap((response) => {
@@ -32,7 +31,7 @@ export class ProductsService {
   }
 
   public getSearchProducts(search: string): void {
-    this._http.get<ProductResponse>(`${environment.API}/products/search?q=${search}`)
+    this._http.get<Product>(`${environment.API}/products/search?q=${search}`)
     .pipe(
       take(1),
       tap((response) => {
